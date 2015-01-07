@@ -9,9 +9,9 @@ export default Ember.Controller.extend({
     var channelEvents = this.get('channelEvents');
     channelEvents.forEach(function(ce) {
       var upcomingEvents = ce.get('events').filter(function(e) {
-        return e.get('eventDateTime') >= now
+        return e.get('eventDateTime') >= now;
       });
-      ce.set('events', upcomingEvents.slice(0, 3));
+      ce.set('events', upcomingEvents.slice(0, 25));
       upNext.push(ce);
     });
 

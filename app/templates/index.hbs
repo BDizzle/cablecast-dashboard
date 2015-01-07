@@ -4,17 +4,19 @@
 	<table>
 	<thead>
 		<th>Event Date Time</th>
+		<th>Show ID</th>
+		<th>Router Action</th>
 		<th>Action</th>
-		<th>Channel</th>
-		<th>Occurs In</th>
+		<th>Occurs In...</th>
 	</thead>
 	<tbody>
 		{{#each event in channelEventList.events}}
-		  <tr>
-		  	<td>{{event.eventDateTime}}</td>
-		  	<td>{{event.deviceAction}}</td>
-		  	<td>{{event.channelId}}</td>
-		  	<td>{{event.occursIn}} seconds</td>
+		  <tr class="event">
+		  	<td>{{formatted-date event.eventDateTime 'MM-DD-YYYY HH:mm:ss'}}</td>
+		  	<td class="showId">{{event.showId}}</td>
+		  	<td>{{action-to-string event.routerAction}}</td>
+		  	<td>{{action-to-string event.deviceAction}}</td>
+		  	<td>{{event.occursIn}}</td>
 		  </tr>
 	  	{{/each}}
 	</tbody>
