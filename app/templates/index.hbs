@@ -1,0 +1,22 @@
+<h1>{{currentTime}}</h1>
+	{{#each channelEventList in upNext}}
+	<h3>Channel {{channelEventList.channel.name}}</h3>
+	<table>
+	<thead>
+		<th>Event Date Time</th>
+		<th>Action</th>
+		<th>Channel</th>
+		<th>Occurs In</th>
+	</thead>
+	<tbody>
+		{{#each event in channelEventList.events}}
+		  <tr>
+		  	<td>{{event.eventDateTime}}</td>
+		  	<td>{{event.deviceAction}}</td>
+		  	<td>{{event.channelId}}</td>
+		  	<td>{{event.occursIn}} seconds</td>
+		  </tr>
+	  	{{/each}}
+	</tbody>
+	</table>
+	{{/each}}
